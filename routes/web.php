@@ -16,3 +16,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('contacts', 'ContactController');
+
+Route::resource('categories', 'CategoryController');
+
+Route::resource('products', 'ProductController');
+
+Route::post('products/upload', 'ProductController@upload');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/redirect', 'SocialAuthFacebookController@redirect');
+Route::get('/callback', 'SocialAuthFacebookController@callback');
